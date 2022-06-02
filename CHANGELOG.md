@@ -13,6 +13,10 @@
 
 <!-- ## (unreleased) -->
 
-## 1.0.0 (2022-06-01)
+## 1.0.1 (2022-06-02)
+
+- Change the command name to `beam`.
+
+## 1.0.0 (2022-06-02)
 
 Initial release 🎉
