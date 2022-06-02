@@ -1,0 +1,4 @@
+{
+	"dist": "dist",
+	"output": { "html": true, "json": false, "folder": ".beam" }
+}

@@ -1,0 +1,122 @@
+{
+	"name": "beam",
+	"version": "1.0.0",
+	"description": "A beautifully simple CLI for running Lighthouse audits on a statically generated (SSG) website",
+	"repository": "slicedsilver/beam",
+	"license": "MIT",
+	"bin": "dist/cli.js",
+	"engines": {
+		"node": "^12.20.0 || ^14.13.1 || >=16.0.0"
+	},
+	"type": "module",
+	"scripts": {
+		"generate-schema": "npx ts-json-schema-generator --path './src/options/types.ts' --type 'Options'",
+		"generate-schema:mac": "npx ts-json-schema-generator --path './src/options/types.ts' --type 'Options' | pbcopy",
+		"build": "tsc && chmod +x dist/cli.js",
+		"start": "npm run build && dist/cli.js",
+		"pretest": "npm run build",
+		"test": "xo && ava",
+		"ava": "ava",
+		"xo": "xo",
+		"xo:fix": "xo --fix",
+		"format": "./node_modules/.bin/prettier --write ./.prettierrc.json --check \"./src/**/*.{js,ts,tsx,jsx,md}\""
+	},
+	"files": [
+		"dist/cli.js"
+	],
+	"keywords": [
+		"lighthouse",
+		"cli",
+		"tui",
+		"terminal",
+		"term",
+		"command-line",
+		"console",
+		"ink",
+		"react-ink",
+		"webperf"
+	],
+	"dependencies": {
+		"@web/dev-server": "^0.1.31",
+		"@web/dev-server-esbuild": "^0.3.0",
+		"ajv": "^6.12.6",
+		"chrome-launcher": "^0.15.0",
+		"console-table-printer": "^2.11.0",
+		"enquirer": "^2.3.6",
+		"figures": "^4.0.1",
+		"globby": "^13.1.1",
+		"gradient-string": "^2.0.1",
+		"htm": "^3.1.1",
+		"ink": "^3.2.0",
+		"ink-big-text": "^1.2.0",
+		"ink-box": "^1.0.0",
+		"ink-gradient": "^2.0.0",
+		"ink-use-stdout-dimensions": "^1.0.5",
+		"koa-cash": "^4.1.0",
+		"koa-compress": "^5.1.0",
+		"lighthouse": "^9.6.1",
+		"meow": "^9.0.0",
+		"multimatch": "^6.0.0",
+		"open": "^8.4.0",
+		"ora": "^6.1.0",
+		"ow": "^0.28.1",
+		"portscanner": "^2.2.0",
+		"puppeteer": "^14.1.1",
+		"react": "^17.0.2",
+		"speakingurl": "^14.0.1"
+	},
+	"ava": {
+		"typescript": {
+			"extensions": [
+				"tsx",
+				"ts"
+			],
+			"rewritePaths": {
+				"src/": "dist/"
+			},
+			"compile": false
+		}
+	},
+	"xo": {
+		"extends": "xo-react",
+		"rules": {
+			"import/extensions": "off",
+			"@typescript-eslint/object-curly-spacing": "off",
+			"@typescript-eslint/comma-dangle": "off",
+			"react/jsx-tag-spacing": "off",
+			"react/function-component-definition": "off",
+			"operator-linebreak": "off",
+			"curly": "off",
+			"@typescript-eslint/quotes": [
+				"error",
+				"single",
+				{
+					"avoidEscape": true
+				}
+			]
+		}
+	},
+	"devDependencies": {
+		"@ava/typescript": "^3.0.1",
+		"@sindresorhus/tsconfig": "^2.0.0",
+		"@types/chrome-remote-interface": "^0.31.4",
+		"@types/gradient-string": "^1.1.2",
+		"@types/ink-big-text": "^1.2.1",
+		"@types/ink-box": "^1.0.2",
+		"@types/ink-gradient": "^2.0.1",
+		"@types/koa-compress": "^4.0.3",
+		"@types/portscanner": "^2.1.1",
+		"@types/react": "^18.0.9",
+		"@types/speakingurl": "^13.0.3",
+		"ava": "^4.2.0",
+		"chalk": "^4.1.2",
+		"eslint-config-xo-react": "^0.27.0",
+		"eslint-plugin-react": "^7.30.0",
+		"eslint-plugin-react-hooks": "^4.5.0",
+		"ink-testing-library": "^2.1.0",
+		"prettier": "^2.6.2",
+		"type-fest": "^2.13.0",
+		"typescript": "^4.7.2",
+		"xo": "^0.49.0"
+	}
+}
