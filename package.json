@@ -1,6 +1,6 @@
 {
 	"name": "beam-cli",
-	"version": "1.0.1",
+	"version": "1.1.0",
 	"description": "A beautifully simple CLI for running Lighthouse audits on a statically generated (SSG) website",
 	"repository": "slicedsilver/beam",
 	"license": "MIT",
