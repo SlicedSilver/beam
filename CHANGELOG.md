@@ -13,6 +13,11 @@
 
 <!-- ## (unreleased) -->
 
+## 1.1.0 (2022-06-09)
+
+- Node version 12 is no longer supported.
+- Updated dependencies.
+
 ## 1.0.1 (2022-06-02)
 
 - Change the command name to `beam`.

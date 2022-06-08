@@ -1,4 +1,4 @@
-import { LighthouseCategories } from '../options/types';
+import { LighthouseCategories } from '../options/types.js';
 
 export const lighthouseCategoriesArray: LighthouseCategories[] = [
 	'performance',

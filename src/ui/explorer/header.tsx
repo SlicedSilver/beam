@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { Box, Text, Spacer } from 'ink';
-import { TabNames } from './explorer';
+import { TabNames } from './explorer.js';
 
 export const ExplorerHeader: FC<{
 	tabs: string[];

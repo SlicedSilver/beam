@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import ajv from 'ajv';
+import type { ErrorObject } from 'ajv';
 import meow from 'meow';
 import { LighthouseResultsSummary } from './analyse/analyse-lighthouse-results.js';
 import { startApp } from './ui/app/app.js';
@@ -30,15 +30,15 @@ const cli = meow(
 	  $ beam
 
 	Options
-    	--setup -s   		Setup and Create a new Beam configuration file
-		--config -c  		Path to Beam configuration file
-    	--dist -d    		Path to Build Directory
-    	--urls -u    		Comma-seperated list of URLs to test
-    	--port -p    		Server Port Number
-    	--no-gui     		Skip Interactive Results Viewer GUI
-		--viewlast			Skip Tests and View Last Results in GUI
-		--version			Display Version
-		--help				Display this Help Message
+    	--setup -s		Setup and Create a new Beam configuration file
+		--config -c		Path to Beam configuration file
+    	--dist -d		Path to Build Directory
+    	--urls -u		Comma-seperated list of URLs to test
+    	--port -p		Server Port Number
+    	--no-gui		Skip Interactive Results Viewer GUI
+		--viewlast		Skip Tests and View Last Results in GUI
+		--version		Display Version
+		--help			Display this Help Message
 
 
 	Examples
@@ -49,6 +49,7 @@ const cli = meow(
 		Run Beam on the dist folder
 `,
 	{
+		importMeta: import.meta,
 		flags: {
 			setup: {
 				alias: 's',
@@ -101,8 +102,12 @@ const main = async () => {
 		if (!validConfigFile) {
 			errorMessage('Error validating contents of the user configuration file.');
 			if (validationErrors) {
-				for (const ajvError of validationErrors as ajv.ErrorObject[]) {
-					printMessage(`  ${ajvError.dataPath}: ${ajvError.message ?? ''}`);
+				for (const ajvError of validationErrors as ErrorObject[]) {
+					printMessage(
+						`  ${ajvError.instancePath}: ${ajvError.keyword} ${
+							ajvError.message ?? ''
+						}`
+					);
 				}
 			}
 

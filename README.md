@@ -19,7 +19,7 @@ Features:
 
 ## Prerequisites
 
-- node ^12.20.0 || ^14.13.1 || >=16.0.0
+- node ^14.13.1 || >=16.0.0
 
 ## Install
 

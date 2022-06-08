@@ -1,5 +1,5 @@
 import type { PartialDeep } from 'type-fest';
-import { Options } from '../options/types';
+import { Options } from '../options/types.js';
 
 export type ConfigurationOptions = PartialDeep<Options>;
 
