@@ -13,6 +13,9 @@
 
 <!-- ## (unreleased) -->
 
+## 1.2.0 (2022-07-05)
+- Updated Lighthouse and Puppeteer dependencies. Now running Chromium v104.
+
 ## 1.1.0 (2022-06-09)
 
 - Node version 12 is no longer supported.
